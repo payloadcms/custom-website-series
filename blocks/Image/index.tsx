@@ -1,6 +1,6 @@
 import React from 'react';
 import { Block } from 'payload/types';
-import { MediaType } from '../../collections/Media';
+import { Type as MediaType } from '../../collections/Media';
 import RichText from '../../components/RichText';
 
 export type Type = {

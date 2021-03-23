@@ -1,6 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 
-export type MediaType = {
+export type Type = {
   filename: string
   alt: string
   sizes: {
