@@ -1,47 +1,28 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   extends: [
-    '@trbl',
+    '@trbl/eslint-config/configs/base',
     'plugin:@typescript-eslint/recommended',
   ],
+  rules: {
+    'no-use-before-define': 'off',
+    'import/extensions': 'off',
+    'react/prop-types': 'off',
+  },
   settings: {
     'import/resolver': {
       node: {
+        overrides: [
+          {
+            files: ['*.ts', '*.tsx'],
+            parser: '@typescript-eslint/parser',
+            extends: [
+              'plugin:@typescript-eslint/recommended',
+            ],
+          },
+        ],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
-  rules: {
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
-    'import/prefer-default-export': 'off',
-    'react/prop-types': 'off',
-    'react/no-unused-prop-types': 'off',
-    'react/require-default-props': 'off',
-    'no-underscore-dangle': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
-  },
-  overrides: [
-    {
-      files: ['*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
-  ],
 };
