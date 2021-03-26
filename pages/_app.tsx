@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+import useStyles from '../css/app';
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
+  const classes = useStyles();
+
   useEffect(() => {
     const style = document.getElementById('server-side-styles');
 
@@ -11,7 +14,9 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => {
   }, []);
 
   return (
-    <Component {...pageProps} />
+    <div className={classes.app}>
+      <Component {...pageProps} />
+    </div>
   );
 };
 
