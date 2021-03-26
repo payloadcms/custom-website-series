@@ -1,11 +1,9 @@
 import { Field } from 'payload/types';
 
 export type Type = {
-  meta?: {
-    title?: string
-    description?: string
-    keywords?: string
-  }
+  title?: string
+  description?: string
+  keywords?: string
 }
 
 const meta: Field = {
