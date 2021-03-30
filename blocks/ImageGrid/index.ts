@@ -10,6 +10,7 @@ export type Image = {
 export type Type = {
   backgroundColor: BackgroundColorType
   images: Image[]
+  blockType: 'image-grid'
 }
 
 const ImageGrid: Block = {

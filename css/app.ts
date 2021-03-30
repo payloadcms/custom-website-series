@@ -17,6 +17,7 @@ export default createUseStyles({
       fontFamily: 'system-ui, Helvetica Neue, Helvetica, Arial, sans-serif',
       fontSize: htmlFontSize,
       lineHeight: `${baselinePX}px`,
+      backgroundColor: colors.antique,
       [queries.m]: {
         fontSize: htmlFontSize * 0.75,
       },

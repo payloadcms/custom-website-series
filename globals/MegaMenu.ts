@@ -1,9 +1,18 @@
 import { GlobalConfig } from 'payload/types';
-import link from '../fields/link';
+import link, { Type as LinkType } from '../fields/link';
+
+export type Type = {
+  nav: {
+    link: LinkType
+  }[]
+}
 
 const MegaMenu: GlobalConfig = {
   slug: 'mega-menu',
   label: 'Mega Menu',
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'nav',

@@ -7,6 +7,7 @@ export type Type = {
   topOverlap: Sizes
   bottomOverlap: Sizes
   stats: StatType[]
+  blockType: 'statistics'
 }
 
 const Statistics: Block = {

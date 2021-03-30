@@ -7,6 +7,7 @@ export type Image = {
 
 export type Type = {
   images: Image[]
+  blockType: 'image-collage'
 }
 
 const ImageCollage: Block = {
