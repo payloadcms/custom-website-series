@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { ModalProvider } from '@faceless-ui/modal';
+import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
+import { WindowInfoProvider } from '@faceless-ui/window-info';
 import { GridProvider } from '@faceless-ui/css-grid';
 import App from 'next/app';
-import { WindowInfoProvider } from '@faceless-ui/window-info';
+
 import Header from '../components/layout/Header';
 import useStyles from '../css/app';
 import zIndex from '../css/zIndex';
@@ -34,8 +35,20 @@ const MyApp = (appProps: AppProps): React.ReactElement => {
   }, []);
 
   return (
-    <WindowInfoProvider breakpoints={breakpoints}>
-      <ModalProvider zIndex={zIndex.modal}>
+    <WindowInfoProvider
+      breakpoints={{
+        xs: `(max-width: ${breakpoints.xs}px)`,
+        s: `(max-width: ${breakpoints.s}px)`,
+        m: `(max-width: ${breakpoints.m}px)`,
+        l: `(max-width: ${breakpoints.l}px)`,
+        xl: `(max-width: ${breakpoints.xl}px)`,
+      }}
+    >
+      <ModalProvider
+        zIndex={zIndex.modal}
+        classPrefix="payload"
+        transTime={400}
+      >
         <GridProvider
           rowGap={{
             s: base(2),
@@ -55,12 +68,20 @@ const MyApp = (appProps: AppProps): React.ReactElement => {
             l: 12,
             xl: 12,
           }}
-          >
+        >
           <div className={classes.app}>
-            <Header megaMenu={megaMenu} socialMedia={socialMedia} />
-            <Component {...pageProps} footer={footer} socialMedia={socialMedia} />
+            <Header
+              megaMenu={megaMenu}
+              socialMedia={socialMedia}
+            />
+            <Component
+              {...pageProps}
+              footer={footer}
+              socialMedia={socialMedia}
+            />
           </div>
         </GridProvider>
+        <ModalContainer />
       </ModalProvider>
     </WindowInfoProvider>
   );
