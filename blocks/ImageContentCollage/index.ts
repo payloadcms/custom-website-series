@@ -13,6 +13,7 @@ export type Type = {
   enableCTA: boolean
   link: LinkType
   images: Image[]
+  blockType: 'image-content-collage'
 }
 
 const ImageContentCollage: Block = {

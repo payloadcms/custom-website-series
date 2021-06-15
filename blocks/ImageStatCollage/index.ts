@@ -9,6 +9,7 @@ export type Image = {
 export type Type = {
   images: Image[]
   stats: StatType[]
+  blockType: 'image-stat-collage'
 }
 
 const ImageStatCollage: Block = {

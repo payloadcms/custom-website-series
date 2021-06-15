@@ -1,8 +1,18 @@
 import { GlobalConfig } from 'payload/types';
 
+export type Type = {
+  links: {
+    label: string
+    url: string
+  }[]
+}
+
 const SocialMedia: GlobalConfig = {
   slug: 'social-media',
   label: 'Social Media',
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       type: 'array',

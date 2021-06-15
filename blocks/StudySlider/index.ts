@@ -5,6 +5,7 @@ import { Type as StudyType } from '../../collections/Study';
 export type Type = {
   backgroundColor: BackgroundColorType
   studies: StudyType[]
+  blockType: 'study-slider'
 }
 
 const StudySlider: Block = {

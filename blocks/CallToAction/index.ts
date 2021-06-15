@@ -10,6 +10,7 @@ export type Type = {
   backgroundColor: BackgroundColorType
   content: unknown
   actions: Action[]
+  blockType: 'call-to-action'
 }
 
 const CallToAction: Block = {

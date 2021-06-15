@@ -8,6 +8,7 @@ export type Action = {
 
 export type Type = {
   actions: Action[]
+  blockType: 'cta-grid'
 }
 
 const CTAGrid: Block = {

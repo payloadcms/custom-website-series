@@ -2,6 +2,7 @@ import { Block } from 'payload/types';
 
 export type Type = {
   size: 'small' | 'medium' | 'large'
+  blockType: 'spacer'
 }
 
 const Spacer: Block = {
