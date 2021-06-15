@@ -1,4 +1,5 @@
 import { base, htmlFontSize } from './base';
+import queries from './queries';
 
 const heading = {
   fontWeight: 'normal',
@@ -42,4 +43,13 @@ export const h5 = {
 export const body = {
   fontSize: htmlFontSize,
   lineHeight: base(1.5),
+};
+
+export const largeBody = {
+  fontSize: 22,
+  lineHeight: base(2.25),
+  margin: `${base(0.5)} 0`,
+  [queries.m]: {
+    lineHeight: base(1.86),
+  },
 };

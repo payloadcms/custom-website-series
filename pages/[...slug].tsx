@@ -7,21 +7,28 @@ import Head from '../components/Head';
 import RenderBlocks from '../components/RenderBlocks';
 import GridContainer from '../components/layout/GridContainer';
 import Template from '../components/layout/Template';
+import { Type as FooterType } from '../globals/Footer';
+import { Type as SocialMediaType } from '../globals/SocialMedia';
 
 export type Props = {
   page?: PageType
   statusCode: number
+  footer: FooterType
+  socialMedia: SocialMediaType
 }
 
 const Page: React.FC<Props> = (props) => {
-  const { page } = props;
+  const { page, footer, socialMedia } = props;
 
   if (!page) {
     return <NotFound />;
   }
 
   return (
-    <Template>
+    <Template
+      footer={footer}
+      socialMedia={socialMedia}
+    >
       <Head
         title={page.meta?.title || page.title}
         description={page.meta?.description}
@@ -33,10 +40,16 @@ const Page: React.FC<Props> = (props) => {
       <RenderBlocks layout={page.layout} />
       <GridContainer>
         <Grid>
-          <Cell cols={6}>
+          <Cell
+            cols={6}
+            colsM={8}
+          >
             Here is some first-column content
           </Cell>
-          <Cell cols={6}>
+          <Cell
+            cols={6}
+            colsM={8}
+          >
             Here is some content
           </Cell>
         </Grid>

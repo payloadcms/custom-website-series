@@ -7,3 +7,5 @@ export default {
   yellow: '#FFEF5E',
   orange: '#FCB449',
 };
+
+export type Color = 'antique' | 'white' | 'gray' | 'red' | 'blue' | 'yellow' | 'orange'
