@@ -5,7 +5,7 @@ const FormSubmission: CollectionConfig = {
   fields: [
     {
       type: 'text',
-      name: 'from',
+      name: 'email',
       label: 'From Email',
       admin: {
         readOnly: true,
