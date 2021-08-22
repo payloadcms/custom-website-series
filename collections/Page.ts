@@ -33,6 +33,8 @@ export type Layout =
   | StickyContentType
   | StudySliderType
 
+export type HeroType = 'minimal' | 'contentAboveMedia' | 'contentLeftOfMedia'
+
 export type Type = {
   title: string
   heroType: 'minimal' | 'contentAboveMedia' | 'contentLeftOfMedia'

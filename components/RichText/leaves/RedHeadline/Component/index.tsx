@@ -7,7 +7,7 @@ const RedHeadline: React.FC = ({ children }) => {
     <span className={redHeadline}>
       {children}
     </span>
-  )
-}
+  );
+};
 
 export default RedHeadline;
