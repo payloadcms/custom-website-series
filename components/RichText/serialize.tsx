@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import escapeHTML from 'escape-html';
 import { Text } from 'slate';
+import RedHeadline from './leaves/RedHeadline/Component';
+import RedUnderline from './leaves/RedUnderline/Component';
 
 const serialize = (children: any): React.ReactElement[] => children.map((node, i) => {
   if (Text.isText(node)) {
@@ -11,6 +13,22 @@ const serialize = (children: any): React.ReactElement[] => children.map((node, i
         <strong key={i}>
           {text}
         </strong>
+      );
+    }
+
+    if (node['red-headline']) {
+      text = (
+        <RedHeadline>
+          {text}
+        </RedHeadline>
+      );
+    }
+
+    if (node['red-underline']) {
+      text = (
+        <RedUnderline>
+          {text}
+        </RedUnderline>
       );
     }
 
@@ -132,6 +150,11 @@ const serialize = (children: any): React.ReactElement[] => children.map((node, i
         >
           {serialize(node.children)}
         </a>
+      );
+
+    case 'hr':
+      return (
+        <hr key={i} />
       );
 
     default:

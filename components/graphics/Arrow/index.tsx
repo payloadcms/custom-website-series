@@ -1,28 +1,23 @@
 import React from 'react';
-import useStyles from './css';
 import { Color } from '../../../css/colors';
 
-const Arrow: React.FC<{ color?: Color, className?: string }> = ({ color = 'gray', className }) => {
-  const classes = useStyles({ color });
+const Arrow: React.FC<{ color?: Color, className?: string }> = ({ className }) => (
+  <svg
+    width="73"
+    height="72"
+    viewBox="0 0 73 72"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path
+      d="M9.54688 35.9972H62.8136M62.8136 35.9972L54.1758 27.3594M62.8136 35.9972L54.1758 44.6351"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinecap="square"
+    />
+  </svg>
 
-  return (
-    <svg
-      width="60"
-      height="60"
-      viewBox="0 0 60 60"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-    >
-      <path
-        d="M2.45898 30.95L57.6507 30.95M57.6507 30.95L48.7007 22M57.6507 30.95L48.7007 39.9"
-        strokeWidth="2"
-        strokeMiterlimit="16"
-        strokeLinecap="square"
-        className={classes.path}
-      />
-    </svg>
-  );
-};
+);
 
 export default Arrow;

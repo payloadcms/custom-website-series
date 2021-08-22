@@ -20,5 +20,5 @@ export default createUseStyles({
     [queries.l]: {
       paddingRight: 0,
     },
-  },
-});
+  }
+})

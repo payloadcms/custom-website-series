@@ -1,12 +1,12 @@
 import React from 'react';
-import { Grid, Cell } from '@faceless-ui/css-grid';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { Type as PageType } from '../collections/Page';
 import NotFound from '../components/NotFound';
 import Head from '../components/Head';
 import RenderBlocks from '../components/RenderBlocks';
-import GridContainer from '../components/layout/GridContainer';
 import Template from '../components/layout/Template';
+import PageHero from '../components/layout/PageHero';
+import useStyles from '../css/pages/[...slug]';
 import { Type as FooterType } from '../globals/Footer';
 import { Type as SocialMediaType } from '../globals/SocialMedia';
 
@@ -19,6 +19,7 @@ export type Props = {
 
 const Page: React.FC<Props> = (props) => {
   const { page, footer, socialMedia } = props;
+  const classes = useStyles();
 
   if (!page) {
     return <NotFound />;
@@ -26,6 +27,7 @@ const Page: React.FC<Props> = (props) => {
 
   return (
     <Template
+      className={classes.page}
       footer={footer}
       socialMedia={socialMedia}
     >
@@ -34,26 +36,13 @@ const Page: React.FC<Props> = (props) => {
         description={page.meta?.description}
         keywords={page.meta?.keywords}
       />
-      <header>
-        <h1>{page.title}</h1>
-      </header>
+      <PageHero
+        title={page.title}
+        type={page.heroType}
+        content={page.heroContent}
+        media={page.heroMedia}
+      />
       <RenderBlocks layout={page.layout} />
-      <GridContainer>
-        <Grid>
-          <Cell
-            cols={6}
-            colsM={8}
-          >
-            Here is some first-column content
-          </Cell>
-          <Cell
-            cols={6}
-            colsM={8}
-          >
-            Here is some content
-          </Cell>
-        </Grid>
-      </GridContainer>
     </Template>
   );
 };
@@ -70,6 +59,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: {
       page: pageData.docs[0],
     },
+    revalidate: 1,
   };
 };
 

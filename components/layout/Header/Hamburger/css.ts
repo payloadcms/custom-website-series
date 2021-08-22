@@ -9,7 +9,7 @@ const generateLineStyles = (styles) => ({
   strokeWidth: '2px',
   vectorEffect: 'non-scaling-stroke',
   ...styles,
-});
+})
 
 export default createUseStyles({
   hamburger: {
@@ -31,6 +31,6 @@ export default createUseStyles({
   }),
   line4: ({ active }) => generateLineStyles({
     opacity: active ? 0 : undefined,
-    transform: active ? `translate(0, ${base(0.5)})` : undefined,
+    transform: active ? `translate(0, ${base(.5)})` : undefined,
   }),
-});
+})
