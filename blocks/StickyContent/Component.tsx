@@ -5,7 +5,7 @@ import { Type } from '.';
 import BackgroundColor from '../../components/layout/BackgroundColor';
 import GridContainer from '../../components/layout/GridContainer';
 import Gutter from '../../components/layout/Gutter';
-import Description from './Section';
+import Description from './Description';
 
 import useStyles, { labelHeight } from './css';
 import useIntersect from '../../hooks/useIntersect';

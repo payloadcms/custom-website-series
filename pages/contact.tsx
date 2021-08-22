@@ -100,11 +100,11 @@ const Contact: React.FC<Props> = (props) => {
               <p style={{ margin: 0 }}>
                 <a
                   className={classes.link}
-                  href="tel:6168054652"
+                  href="tel:6161234567"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  616-805-4652
+                  616-123-4567
                 </a>
               </p>
             </div>

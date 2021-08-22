@@ -8,10 +8,11 @@ const Padding: React.FC<{ top: PaddingSize, bottom: PaddingSize }> = ({ children
     <div className={[
       classes[`top-${top}`],
       classes[`bottom-${bottom}`],
-    ].filter(Boolean).join(' ')}>
+    ].filter(Boolean).join(' ')}
+    >
       { children}
-    </div >
-  )
-}
+    </div>
+  );
+};
 
 export default Padding;

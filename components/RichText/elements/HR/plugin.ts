@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Editor } from 'slate';
 
 const withHR = (incomingEditor: Editor): Editor => {

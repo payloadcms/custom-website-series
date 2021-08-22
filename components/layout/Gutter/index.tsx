@@ -1,4 +1,3 @@
-import classes from '*.module.css';
 import React from 'react';
 import useStyles from './css';
 
@@ -14,10 +13,11 @@ const Gutter: React.FC<Props> = ({ children, left = false, right = false, classN
     <div className={[
       left && classes.left,
       right && classes.right,
-      className].filter(Boolean).join(' ')}>
+      className].filter(Boolean).join(' ')}
+    >
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default Gutter;

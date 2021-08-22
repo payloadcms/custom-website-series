@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 import { base } from '../../../css/base';
 import colors from '../../../css/colors';
 import queries from '../../../css/queries';
-import { large, strokeWidth } from '../../../css/sizes';
+import { strokeWidth } from '../../../css/sizes';
 import transitions from '../../../css/transitions';
 import { largeBody } from '../../../css/type';
 

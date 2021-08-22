@@ -7,9 +7,8 @@ export type Type = {
   bottomOverlap: Sizes
 }
 
-const getOverlap = (name: string, label: string): Field => ({
+const getOverlap = (name: string): Field => ({
   name,
-  label,
   type: 'select',
   defaultValue: 'none',
   options: [
@@ -38,8 +37,8 @@ const getOverlap = (name: string, label: string): Field => ({
 const overlap: Field = {
   type: 'row',
   fields: [
-    getOverlap('topOverlap', 'Top Overlap'),
-    getOverlap('bottomOverlap', 'Bottom Overlap'),
+    getOverlap('topOverlap'),
+    getOverlap('bottomOverlap'),
   ],
 };
 

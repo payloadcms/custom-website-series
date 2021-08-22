@@ -1,20 +1,21 @@
-import React, { Fragment, useCallback } from 'react';
+/* eslint-disable import/no-extraneous-dependencies */
+import React, { useCallback } from 'react';
 import { Transforms } from 'slate';
 import { useSlate, ReactEditor } from 'slate-react';
 import { ElementButton } from 'payload/components/rich-text';
 
 const baseClass = 'rich-text-hr-button';
 
-const insertButton = (editor) => {
+const insertHR = (editor) => {
   const text = { text: ' ' };
-  const button = {
+  const hr = {
     type: 'hr',
     children: [
       text,
     ],
   };
 
-  const nodes = [button, { children: [{ text: '' }] }];
+  const nodes = [hr, { children: [{ text: '' }] }];
 
   if (editor.blurSelection) {
     Transforms.select(editor, editor.blurSelection);
@@ -33,7 +34,7 @@ const ToolbarButton: React.FC<{ path: string }> = () => {
   const editor = useSlate();
 
   const handleAddHR = useCallback(() => {
-    insertButton(editor);
+    insertHR(editor);
   }, [editor]);
 
   return (

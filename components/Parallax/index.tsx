@@ -59,7 +59,7 @@ export const Parallax: React.FC<TParallax> = (props) => {
       style={combinedStyles}
     >
       { children}
-    </HtmlElement >
+    </HtmlElement>
   );
 };
 
