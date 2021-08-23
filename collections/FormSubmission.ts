@@ -2,6 +2,17 @@ import { CollectionConfig } from 'payload/types';
 
 const FormSubmission: CollectionConfig = {
   slug: 'form-submissions',
+  access: {
+    create: () => true,
+  },
+  hooks: {
+    afterChange: [
+      () => {
+        // Send an email to the client
+        // with the content of the message
+      },
+    ],
+  },
   fields: [
     {
       type: 'text',

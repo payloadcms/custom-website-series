@@ -30,7 +30,7 @@ const useFieldType = (options: Options): FieldType => {
 
   const [internalValue, setInternalValue] = useState<Value>();
 
-  // Debounce internal values to update form state only every 60ms
+  // Debounce internal values to update form state only every 120ms
   const debouncedValue = useDebounce(internalValue, 120);
 
   // Valid could be a string equal to an error message

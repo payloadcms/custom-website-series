@@ -1,7 +1,6 @@
 import * as React from 'react';
 import useStyles from './css';
 
-
 type AbsoluteNoiseProps = {
   className?: string
 }
