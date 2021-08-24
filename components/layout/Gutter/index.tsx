@@ -2,20 +2,18 @@ import React from 'react';
 import useStyles from './css';
 
 type Props = {
-  className?: string
   left?: boolean
   right?: boolean
+  className?: string
 }
 
-const Gutter: React.FC<Props> = ({ className, left = false, right = false, children }) => {
+const Gutter: React.FC<Props> = ({ children, left = false, right = false, className }) => {
   const classes = useStyles();
-
   return (
     <div className={[
-      className,
       left && classes.left,
       right && classes.right,
-    ].filter(Boolean).join(' ')}
+      className].filter(Boolean).join(' ')}
     >
       {children}
     </div>

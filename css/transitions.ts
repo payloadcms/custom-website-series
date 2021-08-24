@@ -6,7 +6,7 @@ export default {
   slow,
   default: defaultMS,
   fast,
-  modal: 400,
+  modal: 300,
   page: 500,
   linear: `${defaultMS}ms linear`,
   ease: `${defaultMS}ms ease`,

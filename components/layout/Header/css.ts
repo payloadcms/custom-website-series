@@ -2,9 +2,9 @@ import { createUseStyles } from 'react-jss';
 import color from 'color';
 import { base } from '../../../css/base';
 import colors from '../../../css/colors';
-import { headerHeight, strokeWidth } from '../../../css/sizes';
-import queries from '../../../css/queries';
 import zIndex from '../../../css/zIndex';
+import { strokeWidth, headerHeight } from '../../../css/sizes';
+import queries from '../../../css/queries';
 import transitions from '../../../css/transitions';
 
 export default createUseStyles({
@@ -24,12 +24,13 @@ export default createUseStyles({
   },
   logo: {
     background: colors.red,
-    padding: base(0.75),
+    padding: base(0.875),
+    pointerEvents: 'all',
   },
   icon: {
-    width: base(1.5),
-    height: base(1.5),
     display: 'block',
+    width: base(1.25),
+    height: base(1.25),
   },
   menuButton: ({ menuActive }) => ({
     pointerEvents: 'all',
@@ -69,6 +70,11 @@ export default createUseStyles({
       padding: `${headerHeight} ${base(1.5)} 0`,
     },
   },
+  gridContainer: {
+    [queries.s]: {
+      padding: 0,
+    },
+  },
   navLinks: {
     [queries.m]: {
       position: 'relative',
@@ -89,10 +95,10 @@ export default createUseStyles({
     },
   },
   secondaryNavItem: {
+    transition: `all ${transitions.default}ms linear`,
     color: 'white',
     textDecoration: 'none',
     '&:hover': {
-      transition: `all ${transitions.default}ms linear`,
       color: colors.blue,
     },
   },

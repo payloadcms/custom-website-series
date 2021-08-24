@@ -2,6 +2,7 @@ import React from 'react';
 import NextHead from 'next/head';
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
+import colors from '../../css/colors';
 
 const { publicRuntimeConfig: { SERVER_URL } } = getConfig();
 
@@ -23,7 +24,7 @@ const Head: React.FC<Props> = ({ title, description, ogImage, keywords }) => {
 
   const getTitle = () => {
     if (title) return title + titleSuffix;
-    return defaultTitle + titleSuffix;
+    return defaultTitle;
   };
 
   return (
@@ -31,11 +32,7 @@ const Head: React.FC<Props> = ({ title, description, ogImage, keywords }) => {
       <title>
         {getTitle()}
       </title>
-      <link
-        rel="icon"
-        type="image/x-icon"
-        href="/favicon.svg"
-      />
+
       <meta
         name="description"
         content={description || defaultDescription}

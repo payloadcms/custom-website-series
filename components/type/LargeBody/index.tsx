@@ -12,7 +12,7 @@ const LargeBody: React.FC<Props> = ({ children, className }) => {
     <div className={[largeBody, className].filter(Boolean).join(' ')}>
       {children}
     </div>
-  );
-};
+  )
+}
 
 export default LargeBody;

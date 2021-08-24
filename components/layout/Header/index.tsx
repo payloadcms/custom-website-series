@@ -1,15 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { Modal, useModal } from '@faceless-ui/modal';
 import NextLink from 'next/link';
-import { Cell, Grid } from '@faceless-ui/css-grid';
-import { Props } from './types';
-import useStyles from './css';
+import { Modal, useModal } from '@faceless-ui/modal';
+import { Grid, Cell } from '@faceless-ui/css-grid';
 import Icon from '../../graphics/Icon';
 import Hamburger from './Hamburger';
+import { Props } from './types';
 import GridContainer from '../GridContainer';
 import LargeBody from '../../type/LargeBody';
-import Link from '../../Link';
 import LetsTalk from '../../LetsTalk';
+import Link from '../../Link';
+import useStyles from './css';
 
 const menuSlug = 'menu';
 
@@ -24,13 +25,11 @@ const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
         href="/"
         scroll={false}
       >
-        <a
-          href="/"
-          className={classes.logo}
-        >
+        <a className={classes.logo}>
           <Icon className={classes.icon} />
         </a>
       </NextLink>
+
       <button
         type="button"
         className={classes.menuButton}
@@ -38,49 +37,51 @@ const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
       >
         <Hamburger active={menuActive} />
       </button>
+
       <Modal
         slug={menuSlug}
         className={classes.menu}
       >
-        <GridContainer>
+        <GridContainer className={classes.gridContainer}>
           <Grid className={classes.navLinks}>
             <Cell
               cols={8}
               htmlElement="nav"
             >
               {megaMenu?.nav?.map(({ link }, i) => (
-                <Link
-                  {...link}
-                  key={i}
-                  className={classes.primaryNavItem}
+                <h3
+                  style={i === 0 ? { marginTop: 0 } : undefined}
+                  key={link.label}
                 >
-                  <h3
-                    key={i}
-                    style={{ marginTop: i === 0 ? 0 : undefined }}
+                  <Link
+                    {...link}
+                    className={classes.primaryNavItem}
                   >
                     {link.label}
-                  </h3>
-                </Link>
+                  </Link>
+                </h3>
               ))}
             </Cell>
-            <Cell
-              cols={3}
-            >
-              {socialMedia?.links?.map(({ url, label }) => (
-                <LargeBody key={url}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={classes.secondaryNavItem}
-                  >
-                    {label}
-                  </a>
-                </LargeBody>
-              ))}
-            </Cell>
+
+            {(Array.isArray(socialMedia?.links) && socialMedia.links.length > 0) && (
+              <Cell cols={3}>
+                {socialMedia.links.map(({ url, label }) => (
+                  <LargeBody key={label}>
+                    <a
+                      className={classes.secondaryNavItem}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {label}
+                    </a>
+                  </LargeBody>
+                ))}
+              </Cell>
+            )}
           </Grid>
         </GridContainer>
+
         <div className={classes.ctaWrap}>
           <LetsTalk className={classes.ctaCSS} />
         </div>
